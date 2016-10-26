@@ -8,9 +8,9 @@ function show(id) {
 	document.getElementById(id).style.visibility = 'visible'
 }
 
-function make_material_li(name) {
+function make_material_li(name, amount, unit) {
 	var li = document.createElement("li");
-	li.appendChild(document.createTextNode(name));
+	li.appendChild(document.createTextNode(name + " (" + amount + " " + unit +" )"));
 	li.setAttribute("class", "collection-item");
 
 	var delButton = document.createElement("button");
@@ -29,8 +29,10 @@ function make_material_li(name) {
 
 function add_material() {
 	var material = $('#material-select').val();
+	var amount = $('#amount').val();
+	var unit = $('#amount-unit').val();
 	var assembly = document.getElementById('assembly');
-	var li = make_material_li(material);
+	var li = make_material_li(material, amount, unit);
 	assembly.appendChild(li);
 }
 
@@ -41,11 +43,13 @@ $(document).ready( function() {
 		if ($(this).val() != null) {
 			$('#material-add').css("background-color", "#696");
 			$('#material-add').css("color", "white");
+
+			show('material-properties')
 		} else {
 			$('#material-add').css("background-color", "");
 			$('#material-add').css("color", "");
 
-			show_material_properties();
+			hide('material-properties');
 		}
 	})
 });
