@@ -1,19 +1,11 @@
 /* global $ */
 
-function show_select_panel() {
-	document.getElementById('select-panel').style.visibility = 'visible';
+function hide(id) {
+	document.getElementById(id).style.visibility = 'hidden'
 }
 
-function hide_select_panel() {
-	document.getElementById('select-panel').style.visibility = 'hidden';
-}
-
-function show_assembly_panel() {
-	document.getElementById('assembly-panel').style.visibility = 'visible';
-}
-
-function hide_assembly_panel() {
-	document.getElementById('assembly-panel').style.visibility = 'hidden';
+function show(id) {
+	document.getElementById(id).style.visibility = 'visible'
 }
 
 function make_material_li(name) {
@@ -52,6 +44,8 @@ $(document).ready( function() {
 		} else {
 			$('#material-add').css("background-color", "");
 			$('#material-add').css("color", "");
+
+			show_material_properties();
 		}
 	})
 });

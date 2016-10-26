@@ -21,8 +21,8 @@
 <body>
 	<div id="page-body">
 	<div id="assembly-head"> 
-	<button class="btn-flat" onclick="hide_assembly_panel(); show_select_panel()">+Material</button>
-	<button class="btn-flat" onclick="hide_select_panel(); show_assembly_panel()">+Sub-Assembly</button>
+	<button class="btn-flat" onclick="hide('assembly-panel'); show('select-panel')">+Material</button>
+	<button class="btn-flat" onclick="hide('select-panel'); show('assembly-panel')">+Sub-Assembly</button>
 	</div>
 
 	<div>
@@ -50,7 +50,7 @@
 	</div>
 
 	<div class="actions">
-		<button class="btn-flat" style="background-color: #b33;" onclick="hide_select_panel()" id = "material-cancel">
+		<button class="btn-flat" style="background-color: #b33;" onclick="hide('select-panel')" id = "material-cancel">
 		Cancel
 		</button>
 		<button class="btn-flat" onclick="add_material()" id="material-add">Add</button>
@@ -70,7 +70,7 @@
 	
 	
 	<div class="actions">
-		<button class="btn-flat" style="background-color: #b33;" onclick="hide_assembly_panel()" id = "assembly-cancel">
+		<button class="btn-flat" style="background-color: #b33;" onclick="hide('assembly-panel')" id = "assembly-cancel">
 		Cancel
 		</button>
 		<button class="btn-flat" id="assembly-add">Add</button>
