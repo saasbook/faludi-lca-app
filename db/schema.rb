@@ -10,9 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 0) do
-=======
 ActiveRecord::Schema.define(version: 20161022014107) do
 
   create_table "materials", force: :cascade do |t|
@@ -67,6 +64,5 @@ ActiveRecord::Schema.define(version: 20161022014107) do
     t.string   "state"
     t.string   "email"
   end
->>>>>>> 662a6c434df7a6097781ddac832b82b7c7841d94
 
 end

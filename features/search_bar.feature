@@ -4,6 +4,7 @@ Feature: Use search bar
   So that I can find custom Materials and Processes
   I need to be able to see available options using the search bar
 
+
 Background: materials and processes have been added to database
 
   Given the following materials and processes exist:
@@ -16,11 +17,13 @@ Background: materials and processes have been added to database
   | hot-rolled      | processes|
   | cold-rolled     | processes|
 
+@wip
 Scenario: see search bar after clicking materials button
   Given I am on the modelPage
   When I press "materials"
   Then I should see "Select a material"
   
+@wip
 Scenario: see search bar after clicking manufacturing button
   Given I am on the modelPage
   And I press "materials"
@@ -29,6 +32,7 @@ Scenario: see search bar after clicking manufacturing button
   When I press "+ Manufacturing"
   Then I should see "Select a method"
   
+@wip
 Scenario: see search bar after clicking transport button
   Given I am on the modelPage
   And I press "materials"
