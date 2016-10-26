@@ -13,29 +13,36 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
 
-	<link rel="stylesheet" type="text/css" href="test.css">
+	<!-- Select2 -->
+	<!-- Cannot resolve CSS cleanly, implement later if we want. -->
+
 </head>
 
 <body>
+	<div id="page-body">
 	<div id="assembly-head"> 
 	<button class="btn-flat" onclick="hide_assembly_panel(); show_select_panel()">+Material</button>
 	<button class="btn-flat" onclick="hide_select_panel(); show_assembly_panel()">+Sub-Assembly</button>
 	</div>
 
-	<div id="assembly">
+	<div>
 		<span style="text-decoration: underline;"> New Assembly </span>
 
 		<ul id="assembly" class="collection">
-		<li class="collection-item"> Something </li>
-		<li class="collection-item"> Something else </li>
 		</ul>
+
+	</div>
+
+	<div id="assembly-tail">
+		<button class="btn-flat"> Submit Assembly </button>
+	</div>
 	</div>
 
 	<div id="select-panel">
 	<div class="input-field col s12">
-		<select>
-			<option value="" disabled selected>Select your material</option>
-			<%= options_for_select(@categories) %>
+		<select id="material-select">
+			<option value="" disabled selected> Select Your Material </option>
+			<%= grouped_options_for_select(@material_options) %>
 		</select>
 		<label>Material</label>
 	</div>
@@ -46,7 +53,7 @@
 		<button class="btn-flat" style="background-color: #b33;" onclick="hide_select_panel()">
 		Cancel
 		</button>
-		<button class="btn-flat">Add</button>
+		<button class="btn-flat" onclick="add_material()" id="material-add">Add</button>
 	</div>
 	</div>
 	

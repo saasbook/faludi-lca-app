@@ -7,6 +7,11 @@ class Material < ApplicationRecord
         # This is very unsafe and need to add salt to it. 
         return Material.where('title LIKE :query', query: "%#{title}%").first
     end
+
+    def self.find_by_category(category)
+        # This is very unsafe and need to add salt to it. 
+        return Material.where('category LIKE :query', query: "%#{category}%")
+    end
     
     def self.categories
         return Material.all.select(:category).map(&:category).uniq

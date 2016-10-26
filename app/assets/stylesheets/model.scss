@@ -6,11 +6,21 @@ body>div {
 }
 
 #assembly-head {
-	padding: 40px;
+    width: calc(100% - #{$sidebar-width});
+    margin-bottom: 20px;
 	button {
 		color: white;
 		background-color: #696;
 	}
+}
+
+#assembly-tail {
+    width: calc(100% - #{$sidebar-width});
+    button {
+        float: right;
+        color: white;
+        background-color: #696;
+    }
 }
 
 #assembly {
@@ -18,6 +28,25 @@ body>div {
 	.collection {
 		width: 100%;
 	}
+
+    li {
+        height: 56px;
+        line-height: 36px;
+        button {
+            margin-left: 5px;
+            float: right;
+            vertical-align: middle;
+        }
+    }
+
+    .del-button {
+        background-color: #b33;
+    }
+
+    .proc-button {
+        background-color: #669;
+        color: white;
+    }
 }
 
 #select-panel {
