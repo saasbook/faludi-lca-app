@@ -29,6 +29,9 @@ function make_material_li(name, amount, unit) {
 
 function add_material() {
 	var material = $('#material-select').val();
+	if (material == null) {
+		return;
+	}
 	var amount = $('#amount').val();
 	var unit = $('#amount-unit').val();
 	var assembly = document.getElementById('assembly');
