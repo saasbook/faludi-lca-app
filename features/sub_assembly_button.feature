@@ -6,9 +6,11 @@ Feature: display panel to arrange sub-assemblies
     
 Background: I am on the LCA app homepage
   
-    Given I am on the LCA app homepage
+    Given I am on the homepage
   
 Scenario: Open the sub-assemblies panel
-    When I click 
-    Then I should see 'Name'
-    And I should see 'Description'
+    When I press "+Sub-Assembly" 
+    Then I should see "Name"
+    And I should see "Description"
+    And I should see "Cancel"
+    Then I press "assembly-cancel"
