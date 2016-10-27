@@ -23,7 +23,7 @@ body>div {
     }
 }
 
-#assembly {
+#assembly-body {
 	width: calc(100% - #{$sidebar-width});
 	.collection {
 		width: 100%;
