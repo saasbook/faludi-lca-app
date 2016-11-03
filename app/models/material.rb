@@ -9,6 +9,6 @@ class Material < ApplicationRecord
     end
     
     def self.categories
-        return Material.all.select(:category).map(&:category).uniq
+        return Material.all.select(:category).map(&:category).uniq.sort
     end
 end

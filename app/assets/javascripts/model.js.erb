@@ -1,0 +1,102 @@
+/* global $, materials */
+
+function make_new_material_section(event, ui) {
+	var name = ui.draggable[0].innerText;
+
+	var $li = $('<li></li>', {
+		"class": 'material-section'
+	});
+
+	var $head = $('<div></div>', {
+		"class": 'material',
+		"text": name
+	});
+
+	var $body = $('<ul></ul>', {
+		"class": 'collection processes'
+	});
+
+	var $procdrop = $('<li></li>', {
+		"class": 'collection-item',
+		"text": "Drop your " + name + " processes here."
+	});
+
+	$procdrop.appendTo($body);
+	$head.appendTo($li);
+	$body.appendTo($li);
+	$li.appendTo($('#build'));
+
+	$procdrop.droppable({
+		greedy: true,
+
+		drop: function(event, ui) {
+			var from = ui.draggable[0]
+			if ($(from).data('type') == 'procedure') {
+				var $proc = $('<li></li>', {
+					"class": 'collection-item process',
+					"text": from.innerText
+				});
+				var $delButton = make_delete_button($proc);
+				$delButton.appendTo($proc);
+				$procdrop.before($proc);
+			};
+
+		}
+	});
+
+	var $delButton = make_delete_button($li);
+	$delButton.appendTo($head);
+
+	return $li;
+}
+
+function make_delete_button(element) {
+	var $delButton = $('<button></button>', {
+		"class": 'delete-button btn-flat',
+		"text": 'Remove'
+	}).click(function() {element.remove();});
+	return $delButton;
+}
+
+/*
+Pretty hack-ey. document.ready doesn't seem to work here. This also causes problems loading custom css.
+*/
+$(window).load(function() {
+	$('#material-search').autocomplete({
+		data: materials
+	});
+
+	$('.dropdown-content').css({'position': 'absolute', 'width': '350px'});
+});
+
+$(document).ready(function() {
+	$('.draggable').draggable({
+		containment: 'window',
+		appendTo: 'body',
+
+		helper: function (event) {
+			return $('<div></div>', {
+				"class": "drag-thing",
+				"text": event.currentTarget.innerText
+			})
+		},
+
+		cursorAt: {
+			top: 25,
+			left: 50,
+		}
+	});
+
+	$('#assembly').droppable({
+		drop: function (event, ui) {
+			if ($(ui.draggable[0]).data('type') == 'material') {
+				var $li = make_new_material_section(event, ui);
+			}
+		}
+	});
+
+	$('#build').sortable({
+		containment: "window",
+		appendTo: 'body'
+	})
+});
