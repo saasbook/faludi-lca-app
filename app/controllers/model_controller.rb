@@ -13,7 +13,7 @@ class ModelController < ApplicationController
 	  	]
   	end
   	]
-    
-    render 'index'
+
+  render 'index'
   end
 end

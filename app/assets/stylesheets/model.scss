@@ -67,16 +67,16 @@ html, body {
             height: 7px;
             border-radius: 4px;
         }
-        
+
         &::-webkit-scrollbar-track-piece {
             border-radius: 5px;
         }
-        
+
         &::-webkit-scrollbar-thumb {
             background: #4f4f4f;
             border-radius: 5px;
         }
-        
+
         &::-webkit-scrollbar-button {
             width:0;
             height:0;
@@ -93,6 +93,10 @@ html, body {
             }
         }
     }
+}
+
+#dragged-elements {
+   vertical-align: top;
 }
 
 #material-search {
@@ -115,7 +119,6 @@ html, body {
     padding-right: 20px;
     padding-top: 10px;
     padding-bottom:10px;
-
     align-items: center;
     justify-content: center;
 
