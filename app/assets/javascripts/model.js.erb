@@ -64,7 +64,7 @@ function add_proc_to($mat, name, id) {
 	});
 	var $delButton = make_delete_button($proc);
 	$delButton.appendTo($proc);
-	$mat.find('.processes :last-child').before($proc);
+	$mat.find('.processes > :last-child').before($proc);
 }
 
 function make_delete_button(element) {
@@ -89,12 +89,12 @@ function build_data() {
 
 		result.push(material);
 	})
-	console.log(result)
 	return result;
 }
 
 function fill_build( data ) {
-	console.log(data)
+	console.log("filling");
+	console.log(data);
 	for (var key in data){
 		var material = data[key];
 		var $mat = make_new_material_section(material["name"], material["id"]);
@@ -182,10 +182,7 @@ $(document).ready(function() {
 		});
 	})
 
-	console.log(curr_assembly)
 	if (curr_assembly != null) {
-		console.log("filling")
-		console.log(curr_assembly)
 		fill_build(curr_assembly);
 	}
 });
