@@ -28,6 +28,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 gem 'rails_12factor'
 
+gem 'poltergeist'
+
 group :production do
   gem 'pg'
 
@@ -54,7 +56,6 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'byebug', platform: :mri
   gem 'jasmine-rails' # if you plan to use JavaScript/CoffeeScript
-  gem 'poltergeist'
 end
 # setup Cucumber, RSpec, autotest support
 group :test do
@@ -67,5 +68,4 @@ group :test do
   gem 'autotest-rails'
   gem 'factory_girl_rails' # if using FactoryGirl
   gem 'metric_fu'        # collect code metrics
-  gem 'poltergeist'
 end

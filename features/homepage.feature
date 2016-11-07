@@ -61,6 +61,7 @@ Scenario: View Collapsible Processes
    And I should see "Hot Roll"
    And I should see "Cold Roll"
 
+@javascript
 Scenario: Add A Material
    Given I am on the homepage
    Then I should see "Materials"
@@ -71,5 +72,9 @@ Scenario: Add A Material
    And I should see "Polymers"
    And I should see "Wood"
    And I should see "Polymers"
+   Then I choose "Ceramic" from "library"
    And I should see "Concrete"
-   Then I drag "Concrete" to "assembly"
+   And I drag "Concrete" to "build"
+   Then print html
+   Then I should see "Concrete"
+   And I should see "Drop Concrete processes here."

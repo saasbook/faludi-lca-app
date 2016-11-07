@@ -162,6 +162,22 @@ $(document).ready(function() {
 		}
 	});
 
+	$('.draggable').dblclick(function(event, ui) {
+			console.log(ui)
+			console.log(event)
+			console.log($(event.target))
+			var name = $(event.target).data("name")
+			var id = $(event.target).data("id")
+
+			console.log(id)
+			console.log(name)
+
+			if ($(event.target).data('type') == 'material') {
+
+				var $li = make_new_material_section(name, id);
+			}
+	});
+
 	$('#build').sortable({
 		containment: "window",
 		appendTo: 'body'

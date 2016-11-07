@@ -60,16 +60,7 @@ end
 # The :transaction strategy is faster, but might give you threading problems.
 # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature
 Cucumber::Rails::Database.javascript_strategy = :truncation
-# Capybara.default_driver = :selenium
-Capybara.default_driver = :poltergeist
-# Capybara.register_driver :safari do |app|
-#    options = {
-#       :js_errors => false,
-#       :timeout => 360,
-#       :debug => false,
-#       :inspector => false,
-#    }
-#    Capybara::Selenium::Driver.new(app, :browser => :safari)
-# end
+
+Capybara.javascript_driver = :poltergeist
 
 World(FactoryGirl::Syntax::Methods)
