@@ -45,7 +45,7 @@
           <div style="background-color: #b33" class="collapsible-header active"><i class="material-icons">expand_more</i>Materials</div>
           <div class="collapsible-body">
             <input type="text" id="material-search" class="autocomplete">
-            <ul>
+            <ul id = "materials-menu">
                 <% @material_options.each do |category, materials| %>
                     <ul id="materials" class="collapsible" data-collapsible="expandable">
                     <li>
@@ -53,7 +53,7 @@
                         <div class="collapsible-body">
                             <ul class="collection">
                                 <% materials.each do |material, id| %>
-                                    <%= content_tag :li, material, :class => "collection-item draggable", :data => {:type => 'material', :id => id, :name => material} %>
+                                    <%= content_tag :li, material, :id => "draggable-materials-" + material, :class => "collection-item draggable", :data => {:type => 'material', :id => id, :name => material} %>
                                 <% end %>
                             </ul>
                         </div>
@@ -67,7 +67,7 @@
         <li>
           <div style="background-color: #fb0" class="collapsible-header"><i class="material-icons">expand_more</i>Manufacturing</div>
           <div class="collapsible-body">
-              <ul>
+              <ul id = "manufacturing-menu">
                 <% (@procedures['Manufacturing'] || []).each do |material, procedures| %>
                     <ul id="procedures" class="collapsible" data-collapsible="expandable">
                     <li>
@@ -75,7 +75,7 @@
                         <div class="collapsible-body">
                             <ul class="collection">
                                 <% procedures.each do |procedure, id| %>
-                                    <%= content_tag :li, procedure, :class => "collection-item draggable", :data => {:type => 'procedure', :id => id, :name => procedure} %>
+                                    <%= content_tag :li, procedure, :id => "draggable-manufacturing-" + procedure, :class => "collection-item draggable", :data => {:type => 'procedure', :id => id, :name => procedure} %>
                                 <% end %>
                             </ul>
                         </div>
@@ -90,7 +90,7 @@
         <li>
           <div style="background-color: #ee3" class="collapsible-header"><i class="material-icons">expand_more</i>Transport</div>
           <div class="collapsible-body">
-              <ul>
+              <ul id = "transportation-menu">
                 <% (@procedures['Transportation'] || []).each do |material, procedures| %>
                     <ul id="procedures" class="collapsible" data-collapsible="expandable">
                     <li>
@@ -98,7 +98,7 @@
                         <div class="collapsible-body">
                             <ul class="collection">
                                 <% procedures.each do |procedure| %>
-                                    <li class="collection-item draggable" data-type="procedure"><%= procedure %></li>
+                                    <li class="collection-item draggable" id = <%= "draggable-transportation-" + procedure %> data-type="procedure"><%= procedure %></li>
                                 <% end %>
                             </ul>
                         </div>

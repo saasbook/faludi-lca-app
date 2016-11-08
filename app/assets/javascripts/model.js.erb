@@ -156,8 +156,7 @@ $(document).ready(function() {
 			var id = $(item).data("id")
 
 			if ($(item).data('type') == 'material') {
-
-				var $li = make_new_material_section(name, id);
+				make_new_material_section(name, id);
 			}
 		}
 	});
@@ -173,8 +172,7 @@ $(document).ready(function() {
 			console.log(name)
 
 			if ($(event.target).data('type') == 'material') {
-
-				var $li = make_new_material_section(name, id);
+				make_new_material_section(name, id);
 			}
 	});
 
