@@ -26,7 +26,7 @@
         var materials = <%= @material_data.to_json.html_safe %>;
         var names = <%= @material_names.to_json.html_safe %>;
         var SAVE_URL = '/model';
-        // var curr_assembly = <% @curr_assembly %>
+        var curr_assembly = <%= @curr_assembly.to_json.html_safe %>;
     </script>
 
     <% javascript_include_tag "model" %>
@@ -52,7 +52,7 @@
           <div class="collapsible-body">
             <input type="text" id="material-search" class="autocomplete">
             <ul>
-                <% @material_options.each do |category, materials| -%>
+                <% @material_options.each do |category, materials| %>
                     <ul id="materials" class="collapsible" data-collapsible="expandable">
                     <li>
                         <div class="collapsible-header"><i class="material-icons">expand_more</i><%= category %></div>
@@ -74,7 +74,7 @@
           <div style="background-color: #fb0" class="collapsible-header"><i class="material-icons">expand_more</i>Manufacturing</div>
           <div class="collapsible-body">
               <ul>
-                <% (@procedures['Manufacturing'] || []).each do |material, procedures| -%>
+                <% (@procedures['Manufacturing'] || []).each do |material, procedures| %>
                     <ul id="procedures" class="collapsible" data-collapsible="expandable">
                     <li>
                         <div class="collapsible-header"><i class="material-icons">expand_more</i><%= material %></div>
@@ -97,7 +97,7 @@
           <div style="background-color: #ee3" class="collapsible-header"><i class="material-icons">expand_more</i>Transport</div>
           <div class="collapsible-body">
               <ul>
-                <% (@procedures['Transportation'] || []).each do |material, procedures| -%>
+                <% (@procedures['Transportation'] || []).each do |material, procedures| %>
                     <ul id="procedures" class="collapsible" data-collapsible="expandable">
                     <li>
                         <div class="collapsible-header"><i class="material-icons">expand_more</i><%= material %></div>
