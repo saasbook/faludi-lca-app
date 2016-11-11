@@ -1,5 +1,5 @@
-When(/^Given I am on the homepage$/) do
-  visit root_path
+Given(/^I am on the homepage$/) do
+  visit root_path # Write code here that turns the phrase above into concrete actions
 end
 
 
