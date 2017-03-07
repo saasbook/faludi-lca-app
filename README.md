@@ -6,6 +6,7 @@
 [![Build Status](https://travis-ci.org/rqueensen/faludi-lca-app.svg?branch=master)](https://travis-ci.org/rqueensen/faludi-lca-app)
 
 [Current app deployment](https://cs169-faludi-proj.herokuapp.com/)
+You can register with fake info since field checking is disabled, or use the test user/password u/u
 
 [Pivitol Tracker Project](https://www.pivotaltracker.com/n/projects/1886787)
 
