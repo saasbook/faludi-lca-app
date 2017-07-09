@@ -23,6 +23,9 @@
 # Ignore RubyMine files
 .idea
 
+# Ignore CodeClimate Coverage files
+/coverage
+
 # Ignore RVM files
 .ruby-gemset
 .ruby-version
