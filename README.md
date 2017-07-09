@@ -1,6 +1,6 @@
 # Focus LCA Web App
 
-[![Build Status](https://travis-ci.org/rqueensen/faludi-lca-app.svg?branch=master)](https://travis-ci.org/rqueensen/faludi-lca-app) <a href="https://codeclimate.com/github/rqueensen/faludi-lca-app"><img src="https://codeclimate.com/github/rqueensen/faludi-lca-app/badges/gpa.svg" /></a> <a href="https://codeclimate.com/github/rqueensen/faludi-lca-app/coverage"><img src="https://codeclimate.com/github/rqueensen/faludi-lca-app/badges/coverage.svg" /></a>
+[![Build Status](https://travis-ci.org/cs169-summer2017-team10/focus-lca-webapp.svg?branch=master)](https://travis-ci.org/cs169-summer2017-team10/focus-lca-webapp) <a href="https://codeclimate.com/github/cs169-summer2017-team10/focus-lca-webapp"><img src="https://codeclimate.com/github/cs169-summer2017-team10/focus-lca-webapp/badges/gpa.svg" /></a> <a href="https://codeclimate.com/github/cs169-summer2017-team10/focus-lca-webapp/coverage"><img src="https://codeclimate.com/github/cs169-summer2017-team10/focus-lca-webapp/badges/coverage.svg" /></a>
 
 ## Description
 
