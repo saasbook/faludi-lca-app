@@ -20,6 +20,9 @@
 # Ignore Byebug command history file.
 .byebug_history
 
+# Ignore RubyMine files
+.idea
+
 # Ignore RVM files
 .ruby-gemset
 .ruby-version
