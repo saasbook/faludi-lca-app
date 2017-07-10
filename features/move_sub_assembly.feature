@@ -1,8 +1,8 @@
-Feature: Edit sub-assembly
+Feature: Organize sub-assembly
 
   As a product designer
-  So I can organize materials in my sub assemblies
-  I need to be able to add and delete items from sub-assembly folders
+  So I can organize my sub-assemblies for my product
+  I need to be able to re-order and delete sub-assemblies
 
 Background: Materials and Processes have been added to the database
 
@@ -31,16 +31,26 @@ Background: Materials and Processes have been added to the database
 
   And I press "+Assembly"
   And I fill in "assemblyName" with "Assem1"
+  And I press "+Assembly"
+  And I fill in "assemblyName" with "Assem2"
+
+@wip
+Scenario: A second sub-assembly is added
+  Then I should see "Assem1" above "Assem2"
 
 
 @wip
-Scenario: Add items into sub-assembly folder
-  When I drag "Steel" to "Assem1"
-  Then I should see "Steel" in "Assem1"
-
-@wip
-Scenario: Delete items from sub-assembly folder
+Scenario: Re-order sub-assembly folders
   Given I drag "Steel" to "Assem1"
-  When I delete "Steel"
-  Then I should not see "Steel" in "Assem1"
+  And I drag "Acids" to "Assem2"
+  When I drag "Assem2" above "Assem1"
+  Then I should see "Assem2" above "Assem1"
+  And I should see "Acids" above "Steel"
+
+@wip
+Scenario: Delete sub-assembly folder
+  Given I drag "Steel" to "Assem1"
+  When I delete "deleteButton"
+  Then I should not see "Assem1"
+
 

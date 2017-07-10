@@ -1,8 +1,8 @@
 Feature: Add sub-assembly
 
-    As a product designer
-    So I can organize my parts
-    I need to be able to create sub-assembly folders
+  As a product designer
+  So I can organize my materials
+  I need to be able to create and name sub-assembly folders
 
 Background: Materials and Processes have been added to the database
 
@@ -28,14 +28,10 @@ Background: Materials and Processes have been added to the database
     | Hot Roll        | Manufacturing    | Steel    |
     | Cold Roll       | Manufacturing    | Steel    |
     | Tempering       | Manufacturing    | Steel    |
-    
-    And I enter "Steel" with 25 kg
-    And I enter "Wood" with 10 kg
-    And I enter "Copper" with 5 kg
 
 @wip
 Scenario: Create a new sub-assembly
-   Given I do not see "newAssembly"
+   Given I should not see "newAssembly"
    And I should see "+Assembly"
    When I press "+Assembly"
    Then I should see "newAssembly"
@@ -45,3 +41,4 @@ Scenario: Add name to sub-assembly
    Given I press "+Assembly"
    And I fill in "assemblyName" with "Assem1"
    Then I should see "Assem1"
+
