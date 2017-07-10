@@ -10,7 +10,8 @@ A simple, easy to use UI will allow the users to easily add information about th
 ## Other
 
 [Current app deployment on Heroku](https://focus-lca-summer2017.herokuapp.com)
-You can register with fake info since field checking is disabled, or use the test user/password u/u
+
+You can register with fake info since field checking is disabled.
 
 [Pivotal Tracker Project](https://www.pivotaltracker.com/n/projects/2070305)
 
