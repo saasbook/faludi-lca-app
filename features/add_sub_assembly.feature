@@ -2,7 +2,7 @@ Feature: Add sub-assembly
 
     As a product designer
     So I can organize my parts
-    I need to be able to create sub-assembly folders and drag things into them
+    I need to be able to create sub-assembly folders
 
 Background: Materials and Processes have been added to the database
 
@@ -45,10 +45,3 @@ Scenario: Add name to sub-assembly
    Given I press "+Assembly"
    And I fill in "assemblyName" with "Assem1"
    Then I should see "Assem1"
-   
-@wip
-Scenario: Drag items into sub-assembly folder 
-    Given I press "+Assembly"
-    And I fill in "assemblyName" with "Assem1"
-    When I drag "Steel" to "Assem1"
-    Then I should not see "Steel"
