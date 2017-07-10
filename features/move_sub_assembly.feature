@@ -50,7 +50,7 @@ Scenario: Re-order sub-assembly folders
 @wip
 Scenario: Delete sub-assembly folder
   Given I drag "Steel" to "Assem1"
-  When I delete "deleteButton"
+  When I delete "Assem1"
   Then I should not see "Assem1"
 
 
