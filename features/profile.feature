@@ -33,6 +33,7 @@ Scenario: Should not reveal password
    And I should not see "secret_pass1234"
 
 Scenario: Logout from Profile Page
+   Given I am on the profile page
    When I follow "Logout"
    Then I should be on the welcome page
    And I should see "Successfully Logged Out!"

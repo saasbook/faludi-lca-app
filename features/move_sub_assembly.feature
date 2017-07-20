@@ -48,9 +48,8 @@ Scenario: Re-order sub-assembly folders
   And I should see "Acids" above "Steel"
 
 @wip
-Scenario: Delete sub-assembly folder
+Scenario: Delete sub-assembly folder by dragging
   Given I drag "Steel" to "Assem1"
   When I delete "Assem1"
   Then I should not see "Assem1"
-
 

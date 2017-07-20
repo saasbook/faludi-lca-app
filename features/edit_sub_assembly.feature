@@ -29,8 +29,8 @@ Background: Materials and Processes have been added to the database
     | Cold Roll       | Manufacturing    | Steel    |
     | Tempering       | Manufacturing    | Steel    |
 
-  And I press "+Assembly"
-  And I fill in "assemblyName" with "Assem1"
+  And I press "Add Subassembly"
+  And I fill in "subassembly" with "Assem1"
 
 
 @wip
@@ -43,4 +43,19 @@ Scenario: Delete items from sub-assembly folder
   Given I drag "Steel" to "Assem1"
   When I delete "Steel"
   Then I should not see "Steel" in "Assem1"
+
+@wip
+  When I delete "Assem1"
+  Then I should not see "Assem1"
+
+@wip
+Scenario: Save subassembly
+  Given I drag "Steel" to "Assem1"
+  And I press "Save"
+  And I follow "Profile"
+  Then I should be on profilepage
+  And I follow "Current Assembly"
+  Then I should see "Assem1"
+  And I should see "Steel" in "Assem1"
+
 

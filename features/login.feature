@@ -96,3 +96,11 @@ Scenario: Signup Errors
 
       Then I should see "Error"
       And I should not see "Library"
+
+   Scenario:
+      Given I am on the loginpage
+      And I fill in "username" with "someRandom"
+      And I fill in "password" with "whatever"
+      And I press "Login"
+      Then I should be on the login page
+      And I should see "No Login Found, Try Again!"
