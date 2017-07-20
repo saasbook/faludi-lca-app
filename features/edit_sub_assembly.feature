@@ -45,6 +45,7 @@ Scenario: Delete items from sub-assembly folder
   Then I should not see "Steel" in "Assem1"
 
 @wip
+Scenario: Delete subassembly
   When I delete "Assem1"
   Then I should not see "Assem1"
 
