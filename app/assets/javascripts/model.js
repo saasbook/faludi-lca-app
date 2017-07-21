@@ -22,7 +22,7 @@ function make_new_material_section(name, id, quantity, measurement) {
 	});
 
 	var $procdrop = $('<li></li>', {
-		"class": 'collection-item',
+	    "class": 'process-drop',
 		"text": "Drop your " + name + " processes here."
 	});
 
@@ -127,7 +127,7 @@ function make_new_subassembly() {
                     "class": 'collection processes'
                 });
                 var $new_procdrop = $('<li></li>', {
-                    "class": 'collection-item',
+                    "class": 'process-drop',
                     "text": "Drop your " + name + " processes here."
                 });
                 $new_procdrop.appendTo($new_body);
@@ -171,7 +171,7 @@ function add_proc_to($mat, name, id, quantity, measurement) {
 	quantity = typeof quantity !== 'undefined' ? quantity : 0;
 	measurement = typeof measurement !== 'undefined' ? measurement : "";
 	var $proc = $('<li></li>', {
-		"class": 'collection-item process',
+		"class": 'process',
 		"text": name,
 		"data-id": id,
 		"data-name": name,
