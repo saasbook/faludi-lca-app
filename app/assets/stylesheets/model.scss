@@ -158,7 +158,6 @@
        border-bottom-right-radius: 5px;
    }
 
-
    #build {
        margin: 0px;
        font-family: verdana;
@@ -170,24 +169,27 @@
        [class*='input-'] {
            width: 7%;
            font-weight: normal;
+           font-size: 10pt;
+           margin: 0;
+           height: 20px;
        }
 
        [class*='label'] {
+           font-size: 10pt;
            padding-left: 20px;
+           padding-right: 5px;
        }
 
        .material {
+         text-align: left;
          font-weight: bold;
-         font-size: 150%;
-         border-radius: 7px;
-         padding: 12px;
-         margin: 2px;
+         font-size: 12pt;
+         padding: 10px 15px 10px 15px;
          background-color: white;
-         line-height: 36px;
        }
 
        .material:hover {
-         background: #A5FEFF;
+         background: #e1f5fe;
        }
 
       .processes {
@@ -210,28 +212,16 @@
       }
 
       [class*='close-'] {
-         // top: 0;
-         font-size: 80%;
-         border-radius: 7px;
-         // position: absolute;
-         float:right;
-         // display: inline-block;
+         cursor: default;
+         font-size: 110%;
+         float: right;
+         color: #9e9e9e;
       }
 
       [class*='close-']:hover {
-          background-color: #f44336;
-          color: white;
+          color: #424242;
       }
 
-      .close-material {
-         padding: 12px 8px 12px 11px;
-         margin: 2px;
-      }
-
-      .close-process {
-         border-radius: 100px;
-         padding: 3px 2px 3px 3px;
-      }
 
    }
 
