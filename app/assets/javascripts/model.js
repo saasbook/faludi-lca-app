@@ -65,18 +65,12 @@ function make_new_material_section(name, id, quantity, measurement) {
 
 function make_new_subassembly() {
     var $li = $('<li></li>', {
-        "class": 'subassembly-section'
+        "class": 'sub-assembly-section'
     });
 
-    var $head = $('<div></div>', {
-        "class": 'subassembly',
-        "text":"\uD83D\uDCC2  " + "Subassembly",
-
-        //"data-id": id,
-        //"data-name": name,
-        //"quantity": quantity,
-        //"measurement": measurement
-    });
+    var $head = $("<div></div>", {"class": 'sub-assembly'});
+    $head.append("<i class='material-icons' id='folder'>folder</i>");
+    $head.append("<div id='text'>Sub-assembly</div>");
 
     var $delButton = make_delete_button($li, 'material');
     $delButton.appendTo($head);
@@ -86,8 +80,8 @@ function make_new_subassembly() {
     });
 
     var $procdrop = $('<li></li>', {
-        "class": 'subassembly-item',
-        "text": "Drop items into subassembly here."
+        "class": 'sub-assembly',
+        "text": "Drop items into sub-assembly here."
     });
 
     $procdrop.appendTo($body);
