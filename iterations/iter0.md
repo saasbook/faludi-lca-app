@@ -1,10 +1,14 @@
-[Entry Video] (https://youtu.be/DjryAE85ohY)
 
-Screencasts:
-**Add here**
-[Daniel] (https://youtu.be/F94HEJecy08)
-[Bonnie] (https://youtu.be/6MwGBgZ7UOo)
-[Ronald] (https://youtu.be/RbPmc-81lXA)
-[Sean]   (https://youtu.be/xxz_0k1MHgA)
-[Ronan] (https://youtu.be/LNn78N5Eukw)
-[Jonathan] (https://www.youtube.com/watch?v=OxZFbRqW_-o&feature=youtu.be&hd=1)
+# Iteration 0
+
+## Entry Video
+
+[Entry Video (YouTube)](https://youtu.be/Xywv8UHreUY)
+
+## Screencasts Project Setup
+
+* [Michael](https://youtu.be/2UjHC4aoob8)
+* [Mehdi](https://youtu.be/UkvJqnB7mHk)
+* [Andrew](https://youtu.be/duGSLULOeR4)
+* [Luis](https://youtu.be/_keUXaELbHs)
+* [Max](https://youtu.be/CHjdmI7DPjo)

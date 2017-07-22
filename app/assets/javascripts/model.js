@@ -22,7 +22,7 @@ function make_new_material_section(name, id, quantity, measurement) {
 	});
 
 	var $procdrop = $('<li></li>', {
-		"class": 'collection-item',
+	    "class": 'process-drop',
 		"text": "Drop your " + name + " processes here."
 	});
 
@@ -63,6 +63,95 @@ function make_new_material_section(name, id, quantity, measurement) {
 	return $li;
 }
 
+function make_new_subassembly() {
+    var $li = $('<li></li>', {
+        "class": 'sub-assembly-section'
+    });
+
+    var $head = $("<div></div>", {"class": 'sub-assembly'});
+    $head.append("<i class='material-icons' id='folder'>folder</i>");
+    $head.append("<div id='text'>Sub-assembly</div>");
+
+    var $delButton = make_delete_button($li, 'material');
+    $delButton.appendTo($head);
+
+    var $body = $('<ul></ul>', {
+        "class": 'collection processes'
+    });
+
+    var $procdrop = $('<li></li>', {
+        "class": 'sub-assembly',
+        "text": "Drop items into sub-assembly here."
+    });
+
+    $procdrop.appendTo($body);
+    $head.appendTo($li);
+    $body.appendTo($li);
+    //add_inputs($head, 'material');
+
+    $li.droppable({
+        greedy: true,
+
+        drop: function(event, ui) {
+            var from = ui.draggable[0].outerHTML; // ui.draggable[0] is HTML obj. outerHTML grabs the string version
+            //console.log(from);
+            $from = $('<div/>').html(from).contents(); // trick to convert string to jquery object
+            if(!$from.hasClass("material-section")){
+                console.log("THIS IS A MATERIAL FROM LIBRARY"); //If so, will need to create new li object
+                var item = ui.draggable[0];
+                var id = $(from).data("id");
+                var name = $(from).data("name");
+                var units = $(from).data("units")
+                if (units == ""){ units = undefined }
+                var type = $(item).data('type')
+                var quantity = typeof quantity !=='undefined'? quantity : 1;
+                var measurement = typeof measurement !=='undefined'? measurement : "kg";
+                var $new_li = $('<li></li>', {
+                    "class": 'material-section'
+                });
+                var $new_head = $('<div></div>', {
+                    "class": 'material',
+                    "text": name,
+                    "data-id": id,
+                    "data-name": name,
+                    "quantity": quantity,
+                    "measurement": measurement
+                });
+                var $new_body = $('<ul></ul>', {
+                    "class": 'collection processes'
+                });
+                var $new_procdrop = $('<li></li>', {
+                    "class": 'process-drop',
+                    "text": "Drop your " + name + " processes here."
+                });
+                $new_procdrop.appendTo($new_body);
+                $new_head.appendTo($new_li);
+                $new_body.appendTo($new_li);
+                console.log($new_li);
+                add_inputs($new_head, 'material');
+                $new_head.find("#quantity").val(quantity);
+                $new_head.find("#measurement").val(measurement);
+                var $delButton = make_delete_button($new_li, 'material');
+                $delButton.appendTo($new_head);
+                $from = $new_li;
+            }
+            $from.css('position', 'relative');
+            $from.css('top', '0px');
+            $from.css('left', '0px');
+            $from.css('margin-bottom', '0px');
+            $from.css('z-index', 'auto');
+            $body.find('.processes :last').prevObject.before($from);
+            //$from.appendTo($body);
+            ui.draggable[0].remove();
+            //console.log("after");
+            //console.log($body[0]);
+        }
+    });
+
+    $li.appendTo($('#build')); //appends material to bottom of build
+    return $li;
+}
+
 function add_inputs($obj, obj_type, css_type) {
 	if (obj_type == "material" || obj_type == "process") {
 		var $quant = $('<label for="quantity" class="label">Quantity</label> <input id="quantity" type="number" class="input-{#obj_type}">');
@@ -76,7 +165,7 @@ function add_proc_to($mat, name, id, quantity, measurement) {
 	quantity = typeof quantity !== 'undefined' ? quantity : 0;
 	measurement = typeof measurement !== 'undefined' ? measurement : "";
 	var $proc = $('<li></li>', {
-		"class": 'collection-item process',
+		"class": 'process',
 		"text": name,
 		"data-id": id,
 		"data-name": name,
@@ -203,6 +292,10 @@ $(document).on('turbolinks:load', function() {
 		containment: "window",
 		appendTo: 'body'
 	})
+
+    $('#add_subassembly').click(function() {
+        var $li = make_new_subassembly();
+    })
 	
 	$('#save').click(function() {
 		Materialize.toast('Saving...', 2000);

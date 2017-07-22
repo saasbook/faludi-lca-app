@@ -1,12 +1,21 @@
+env:
+  global:
+    - CC_TEST_REPORTER_ID=d6732bc46540ae0ad01289f0cd830b63e2cf5ebf58193083c7382f2d9d607f36
+    - GIT_COMMITTED_AT=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then git log -1 --pretty=format:%ct; else git log -1 --skip 1 --pretty=format:%ct; fi)
 language: ruby
 rvm:
- - 2.2.2
-# - jruby
-# - rbx-2
-# uncomment and edit the following line if your project needs to run something other than `rake`:
+  - 2.2.2
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
 script:
   - RAILS_ENV=test bundle exec rake db:migrate --trace
   - bundle exec rspec
   - bundle exec cucumber
+  - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT; fi
 after_script:
-  - bundle exec rake send_to_codeclimate 
+  - bundle exec rake send_to_codeclimate
+notifications:
+  email: false
+  slack:
+    secure: b30JPS3e/RKVNaF5TNw/uCwkG9UmC89BLsbTS1fymw7mooQucpbSAIgfoN9ofhkzaA8ZnYj6lRxhEST1ihRVXEqAXYhLBPNafsh0Uea6ufoBcfclAE1vdGYbVpg2LqY7agj2qPrOFRQDk73z4Ek7bjGIG0+ReO0Q0TjcUQgRJJuZHvy/BNmiIneJRBWnaJmYAOoTU2bDTEzYY/ks/vch9qKaKwYGF5MlL3vmMsg0F50XjZw7YP4umjt6rLvZsBtObYqsBUJ1WEY6vdTXOwlkW/6QMOURw806RvL9ZSlEI5oXv3vgJXEfHbYjZfoB8idCxVqVcmihB8p6VdcUAWRzIXRj4GmQxqEQ6iHqqinSk3m3RiQ3n7JMaebMNCDkmOUGfWdpN0YOrjC5/t2uaA/5tPAaCN5C37RM2v7MmhrKzkEk8FmUFeGloPsD8yiw7rix5nNgiSwGMd1s0FaEbiPYEDyUAEQdh9f6dHKRfUJ2+MxuaxVWqlIwXURJVWtnPAv6qjzTo7q/8JU5Jw/DffYnArUNP0WcxoK4aO/Jh1MaeBp35qVMn1ackjkkegpyGi6F175rccCxNQBDfpbiRxZhoDRKYQWvpAYal271ZXRCHWONbY8OwK0nsdd7w0s4mOe5ykFsYrws/kjFQC7Qpyk5In9VvOvWMzOVABaLsTB2pgM=

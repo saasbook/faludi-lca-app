@@ -79,3 +79,9 @@ Scenario: Add A Material
    And I should see "Wood"
    And I should see "Polymers"
    And I should see "Concrete"
+
+Scenario: Logout from Home Page
+  Given I am on the homepage
+  When I follow "Logout"
+  Then I should be on the welcome page
+  And I should see "Successfully Logged Out!"

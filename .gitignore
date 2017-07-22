@@ -19,3 +19,13 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# Ignore RubyMine files
+.idea
+
+# Ignore CodeClimate Coverage files
+/coverage
+
+# Ignore RVM files
+.ruby-gemset
+.ruby-version
